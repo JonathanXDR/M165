@@ -1,10 +1,33 @@
-CREATE DATABASE name IF NOT EXISTS;
+DROP DATABASE Flights;
+CREATE DATABASE Flights IF NOT EXISTS;
 
 CREATE (n:Airplane {
-    name: 'TestPlane1',
-    model: 'TestModel1',
-    maxPassenger: 12
+    name: 'Plane1',
+    model: 'Airbus A350',
+    maxPassenger: 70
 });
+CREATE (n:Airplane {
+    name: 'Plane2',
+    model: 'Boeing 747',
+    maxPassenger: 321
+});
+CREATE (n:Airplane {
+    name: 'Plane3',
+    model: 'Boeing 767',
+    maxPassenger: 154
+});
+CREATE (n:Airplane {
+    name: 'Plane4',
+    model: 'Boeing 247',
+    maxPassenger: 123
+});
+CREATE (n:Airplane {
+    name: 'Plane5',
+    model: 'Boeing 314',
+    maxPassenger: 79
+});
+
+
 
 CREATE (n:Flight {
     name: 'TestFLight1',
@@ -13,8 +36,28 @@ CREATE (n:Flight {
     arrivalTime: '2015-05-16T05:50:06'
 });
 
+
+
 CREATE (n:Airport {
-    name: 'TestAirport1',
-    city: 'TestCity1',
-    country: 'TestCountry1'
+    name: 'Flughafen Zürich',
+    city: 'Zürich',
+    country: 'Switzerland'
+});
+
+CREATE (n:Airport {
+    name: 'Flughafen Berlin Tegel',
+    city: 'Berlin',
+    country: 'Germany'
+});
+
+CREATE (n:Airport {
+    name: 'Flughafen Genf',
+    city: 'Genf',
+    country: 'Switzerland'
+});
+
+CREATE (n:Airport {
+    name: 'Madrid Brajas Airport',
+    city: 'Madrid',
+    country: 'Spain'
 });
