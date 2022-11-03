@@ -36,142 +36,142 @@ CREATE (n:Airplane {
 # ---------------------------------- Flight --------------------------------- #
 
 CREATE (n:Flight {
-    airline: 'Helvetic'
+    airline: 'Helvetic',
     flightNumber: 'OAW1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air France'
+    airline: 'Air France',    
     flightNumber: 'AFR1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Lufthansa'
+    airline: 'Lufthansa',    
     flightNumber: 'DLH1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Swiss'
+    airline: 'Swiss',    
     flightNumber: 'SWR1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'KLM'
+    airline: 'KLM',    
     flightNumber: 'KLM1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'British Airways'
+    airline: 'British Airways',    
     flightNumber: 'BAW1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air Canada'
+    airline: 'Air Canada',    
     flightNumber: 'ACA1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'United Airlines'
+    airline: 'United Airlines',    
     flightNumber: 'UAL1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Delta Airlines'
+    airline: 'Delta Airlines',    
     flightNumber: 'DAL1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'American Airlines'
+    airline: 'American Airlines',
     flightNumber: 'AAL1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Alitalia'
+    airline: 'Alitalia',
     flightNumber: 'AZA1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air Berlin'
+    airline: 'Air Berlin',
     flightNumber: 'BER1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air China'
+    airline: 'Air China',
     flightNumber: 'CCA1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air India'
+    airline: 'Air India',
     flightNumber: 'AIC1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air New Zealand'
+    airline: 'Air New Zealand',
     flightNumber: 'ANZ1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air Serbia'
+    airline: 'Air Serbia',
     flightNumber: 'ASR1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air Tahiti Nui'
+    airline: 'Air Tahiti Nui',
     flightNumber: 'THT1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Air Transat'
+    airline: 'Air Transat',
     flightNumber: 'TSC1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'AirAsia'
+    airline: 'AirAsia',
     flightNumber: 'AXM1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
 CREATE (n:Flight {
-    airline: 'Alaska Airlines'
+    airline: 'Alaska Airlines',
     flightNumber: 'ASA1629',
-    departureTime: '15:17 CET'
+    departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
@@ -209,59 +209,59 @@ CREATE (n:Airport {
 # ----------------------------------- City ----------------------------------- #
 
 CREATE (n:City {
-    name: 'Zürich'
+    name: 'Zürich',
     country: 'Switzerland'
 });
 
 CREATE (n:City {
-    name: 'Berlin'
+    name: 'Berlint',
     country: 'Germany'
 });
 
 CREATE (n:City {
-    name: 'Genf'
+    name: 'Genf',
     country: 'Switzerland'
 });
 
 CREATE (n:City {
-    name: 'Madrid'
+    name: 'Madrid',
     country: 'Spain'
 });
 
 CREATE (n:City {
-    name: 'Frankfurt'
+    name: 'Frankfurt',
     country: 'Germany'
 });
 
 CREATE (n:City {
-    name: 'München'
+    name: 'München',
     country: 'Germany'
 });
 
 CREATE (n:City {
-    name: 'Wien'
+    name: 'Wien',
     country: 'Austria'
 });
 
 # --------------------------------- Passenger -------------------------------- #
 
 CREATE (n:Passenger {
-    firstname: 'Peter'
+    firstname: 'Peter',
     lastname: 'Müller'
 });
 
 CREATE (n:Passenger {
-    firstname: 'Irina'
+    firstname: 'Irina',
     lastname: 'Hogg'
 });
 
 CREATE (n:Passenger {
-    firstname: 'Lukas'
+    firstname: 'Lukas',
     lastname: 'Schmid'
 });
 
 CREATE (n:Passenger {
-    firstname: 'Sandra'
+    firstname: 'Sandra',
     lastname: 'Schneider'
 });
 
