@@ -1,174 +1,181 @@
-DROP DATABASE Flights;
-CREATE DATABASE Flights IF NOT EXISTS;
+MATCH (n)
+DETACH DELETE n
 
-# --------------------------------- Airplane -------------------------------- #
+// --------------------------------- Airplane -------------------------------- #
 
-CREATE (n:Airplane {
+CREATE (a:Airplane {
     model: 'Airbus A350',
     passengerCapacity: 350
 });
 
-CREATE (n:Airplane {
+CREATE (:Airplane {
     model: 'Airbus A380',
     passengerCapacity: 550
 });
 
-CREATE (n:Airplane {
+CREATE (:Airplane {
     model: 'Boeing 737',
     passengerCapacity: 200
 });
 
-CREATE (n:Airplane {
+CREATE (:Airplane {
     model: 'Boeing 747',
     passengerCapacity: 400
 });
 
-CREATE (n:Airplane {
+CREATE (:Airplane {
     model: 'Boeing 777',
     passengerCapacity: 350
 });
 
-CREATE (n:Airplane {
+CREATE (:Airplane {
     model: 'Boeing 787',
     passengerCapacity: 250
 });
 
-# ---------------------------------- Flight --------------------------------- #
+// ---------------------------------- Flight --------------------------------- #
 
-CREATE (n:Flight {
+CREATE (b:Flight {
     airline: 'Helvetic',
     flightNumber: 'OAW1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+MATCH
+  (a:Airplane),
+  (b:Flight)
+WHERE a.model = 'Airbus A350' AND b.flightNumber = 'OAW1629'
+CREATE (a)-[r:RELTYPE]->(b);
+
+
+CREATE (:Flight {
     airline: 'Air France',    
     flightNumber: 'AFR1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Lufthansa',    
     flightNumber: 'DLH1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Swiss',    
     flightNumber: 'SWR1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'KLM',    
     flightNumber: 'KLM1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'British Airways',    
     flightNumber: 'BAW1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air Canada',    
     flightNumber: 'ACA1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'United Airlines',    
     flightNumber: 'UAL1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Delta Airlines',    
     flightNumber: 'DAL1629',
     departureTime: '15:17 CET',    
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'American Airlines',
     flightNumber: 'AAL1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
-});
+}); 
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Alitalia',
     flightNumber: 'AZA1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air Berlin',
     flightNumber: 'BER1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air China',
     flightNumber: 'CCA1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air India',
     flightNumber: 'AIC1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air New Zealand',
     flightNumber: 'ANZ1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air Serbia',
     flightNumber: 'ASR1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air Tahiti Nui',
     flightNumber: 'THT1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Air Transat',
     flightNumber: 'TSC1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'AirAsia',
     flightNumber: 'AXM1629',
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (n:Flight {
+CREATE (:Flight {
     airline: 'Alaska Airlines',
     flightNumber: 'ASA1629',
     departureTime: '15:17 CET',
@@ -176,94 +183,92 @@ CREATE (n:Flight {
 });
 
 
-# --------------------------------- Airport --------------------------------- #
+// --------------------------------- Airport --------------------------------- #
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen Zürich'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen Berlin Tegel'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen Genf'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Madrid Brajas Airport'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen Frankfurt'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen München'
 });
 
-CREATE (n:Airport {
+CREATE (:Airport {
     name: 'Flughafen Wien'
 }); 
 
-# ----------------------------------- City ----------------------------------- #
+// ----------------------------------- City ----------------------------------- #
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Zürich',
     country: 'Switzerland'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Berlint',
     country: 'Germany'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Genf',
     country: 'Switzerland'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Madrid',
     country: 'Spain'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Frankfurt',
     country: 'Germany'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'München',
     country: 'Germany'
 });
 
-CREATE (n:City {
+CREATE (:City {
     name: 'Wien',
     country: 'Austria'
 });
 
-# --------------------------------- Passenger -------------------------------- #
+// --------------------------------- Passenger -------------------------------- #
 
-CREATE (n:Passenger {
+CREATE (:Passenger {
     firstname: 'Peter',
     lastname: 'Müller'
 });
 
-CREATE (n:Passenger {
+CREATE (:Passenger {
     firstname: 'Irina',
     lastname: 'Hogg'
 });
 
-CREATE (n:Passenger {
+CREATE (:Passenger {
     firstname: 'Lukas',
     lastname: 'Schmid'
 });
 
-CREATE (n:Passenger {
+CREATE (:Passenger {
     firstname: 'Sandra',
     lastname: 'Schneider'
 });
-
-
 
