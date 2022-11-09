@@ -18,20 +18,6 @@ CREATE (:Airplane {
     passengerCapacity: 200
 });
 
-CREATE (:Airplane {
-    model: 'Boeing 747',
-    passengerCapacity: 400
-});
-
-CREATE (:Airplane {
-    model: 'Boeing 777',
-    passengerCapacity: 350
-});
-
-CREATE (:Airplane {
-    model: 'Boeing 787',
-    passengerCapacity: 250
-});
 
 // ---------------------------------- Flight --------------------------------- #
 
@@ -41,12 +27,6 @@ CREATE (b:Flight {
     departureTime: '15:17 CET',
     arrivalTime: '15:50 CET' 
 });
-
-MATCH
-  (a:Airplane),
-  (b:Flight)
-WHERE a.model = 'Airbus A350' AND b.flightNumber = 'OAW1629'
-CREATE (a)-[r:RELTYPE]->(b);
 
 
 CREATE (:Flight {
@@ -77,110 +57,6 @@ CREATE (:Flight {
     arrivalTime: '15:50 CET' 
 });
 
-CREATE (:Flight {
-    airline: 'British Airways',    
-    flightNumber: 'BAW1629',
-    departureTime: '15:17 CET',    
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air Canada',    
-    flightNumber: 'ACA1629',
-    departureTime: '15:17 CET',    
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'United Airlines',    
-    flightNumber: 'UAL1629',
-    departureTime: '15:17 CET',    
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Delta Airlines',    
-    flightNumber: 'DAL1629',
-    departureTime: '15:17 CET',    
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'American Airlines',
-    flightNumber: 'AAL1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-}); 
-
-CREATE (:Flight {
-    airline: 'Alitalia',
-    flightNumber: 'AZA1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air Berlin',
-    flightNumber: 'BER1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air China',
-    flightNumber: 'CCA1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air India',
-    flightNumber: 'AIC1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air New Zealand',
-    flightNumber: 'ANZ1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air Serbia',
-    flightNumber: 'ASR1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air Tahiti Nui',
-    flightNumber: 'THT1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Air Transat',
-    flightNumber: 'TSC1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'AirAsia',
-    flightNumber: 'AXM1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
-
-CREATE (:Flight {
-    airline: 'Alaska Airlines',
-    flightNumber: 'ASA1629',
-    departureTime: '15:17 CET',
-    arrivalTime: '15:50 CET' 
-});
 
 
 // --------------------------------- Airport --------------------------------- #
@@ -201,17 +77,7 @@ CREATE (:Airport {
     name: 'Madrid Brajas Airport'
 });
 
-CREATE (:Airport {
-    name: 'Flughafen Frankfurt'
-});
 
-CREATE (:Airport {
-    name: 'Flughafen München'
-});
-
-CREATE (:Airport {
-    name: 'Flughafen Wien'
-}); 
 
 // ----------------------------------- City ----------------------------------- #
 
@@ -221,7 +87,7 @@ CREATE (:City {
 });
 
 CREATE (:City {
-    name: 'Berlint',
+    name: 'Berlin',
     country: 'Germany'
 });
 
@@ -235,20 +101,6 @@ CREATE (:City {
     country: 'Spain'
 });
 
-CREATE (:City {
-    name: 'Frankfurt',
-    country: 'Germany'
-});
-
-CREATE (:City {
-    name: 'München',
-    country: 'Germany'
-});
-
-CREATE (:City {
-    name: 'Wien',
-    country: 'Austria'
-});
 
 // --------------------------------- Passenger -------------------------------- #
 
@@ -272,3 +124,166 @@ CREATE (:Passenger {
     lastname: 'Schneider'
 });
 
+
+
+
+// Airport -> City
+
+MATCH 
+    (a:Airport {name:"Flughafen Zürich"}), 
+    (b:City  {name:"Zürich"})
+CREATE (a)-[:LOCATED_IN]->(b);
+
+
+MATCH 
+    (a:Airport {name:"Flughafen Berlin Tegel"}), 
+    (b:City  {name:"Berlin"})
+CREATE (a)-[:LOCATED_IN]->(b);
+
+MATCH 
+    (a:Airport {name:"Flughafen Genf"}), 
+    (b:City  {name:"Genf"})
+CREATE (a)-[:LOCATED_IN]->(b);
+
+
+MATCH 
+    (a:Airport {name:"Madrid Brajas Airport"}), 
+    (b:City  {name:"Madrid"})
+CREATE (a)-[:LOCATED_IN]->(b);
+
+
+// Flight -> Plane 
+
+MATCH 
+    (a:Flight {flightNumber:"OAW1629"}), 
+    (b:Airplane  {model:"Airbus A350"})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"AFR1629"}), 
+    (b:Airplane  {model:"Airbus A380"})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"DLH1629"}), 
+    (b:Airplane  {model:"Boeing 737"})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"SWR1629"}), 
+    (b:Airplane  {model:"Airbus A350"})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"KLM1629"}), 
+    (b:Airplane  {model:"Airbus A380"})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+// Flight -> Passanger
+
+MATCH 
+    (a:Flight {flightNumber:"OAW1629"}), 
+    (b:Passenger  {firstname:""})
+CREATE (a)-[:FLIES_WITH]->(b);
+MATCH 
+    (a:Flight {flightNumber:"OAW1629"}), 
+    (b:Passenger  {firstname:""})
+CREATE (a)-[:FLIES_WITH]->(b);
+
+
+MATCH 
+    (a:Flight {flightNumber:"AFR1629"}), 
+    (b:Passenger  {firstname:"Peter"})
+CREATE (a)-[:TRANSPORTS]->(b);
+MATCH 
+    (a:Flight {flightNumber:"AFR1629"}), 
+    (b:Passenger  {firstname:"Irina"})
+CREATE (a)-[:TRANSPORTS]->(b);
+
+
+MATCH 
+    (a:Flight {flightNumber:"DLH1629"}), 
+    (b:Passenger  {firstname:"Sandra"})
+CREATE (a)-[:TRANSPORTS]->(b);
+MATCH 
+    (a:Flight {flightNumber:"DLH1629"}), 
+    (b:Passenger  {firstname:"Peter"})
+CREATE (a)-[:TRANSPORTS]->(b);
+
+
+MATCH 
+    (a:Flight {flightNumber:"SWR1629"}), 
+    (b:Passenger  {firstname:"Sandra"})
+CREATE (a)-[:TRANSPORTS]->(b);
+MATCH 
+    (a:Flight {flightNumber:"SWR1629"}), 
+    (b:Passenger  {firstname:"Lukas"})
+CREATE (a)-[:TRANSPORTS]->(b);
+
+
+MATCH 
+    (a:Flight {flightNumber:"KLM1629"}), 
+    (b:Passenger  {firstname:"Irina"})
+CREATE (a)-[:TRANSPORTS]->(b);
+MATCH 
+    (a:Flight {flightNumber:"KLM1629"}), 
+    (b:Passenger  {firstname:"Lukas"})
+CREATE (a)-[:TRANSPORTS]->(b);
+
+// Flight -> Airport
+
+ 
+MATCH 
+    (a:Flight {flightNumber:"OAW1629"}), 
+    (b:Airport  {name:"Flughafen Zürich"})
+CREATE (a)-[:TAKEOFF_FROM]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"AFR1629"}), 
+    (b:Airport  {name:"Flughafen Berlin Tegel"})
+CREATE (a)-[:TAKEOFF_FROM]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"DLH1629"}), 
+    (b:Airport  {name:"Flughafen Zürich"})
+CREATE (a)-[:TAKEOFF_FROM]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"SWR1629"}), 
+    (b:Airport  {name:"Flughafen Genf"})
+CREATE (a)-[:TAKEOFF_FROM]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"KLM1629"}), 
+    (b:Airport  {name:"Madrid Brajas Airport"})
+CREATE (a)-[:TAKEOFF_FROM]->(b);
+
+// Flight -> Airport
+
+MATCH 
+    (a:Flight {flightNumber:"OAW1629"}), 
+    (b:Airport  {name:"Flughafen Berlin Tegel"})
+CREATE (a)-[:DESTINATION]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"AFR1629"}), 
+    (b:Airport  {name:"Madrid Brajas Airport"})
+CREATE (a)-[:DESTINATION]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"DLH1629"}), 
+    (b:Airport  {name:"Flughafen Genf"})
+CREATE (a)-[:DESTINATION]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"SWR1629"}), 
+    (b:Airport  {name:"Madrid Brajas Airport"})
+CREATE (a)-[:DESTINATION]->(b);
+
+MATCH 
+    (a:Flight {flightNumber:"KLM1629"}), 
+    (b:Airport  {name:"Flughafen Zürich"})
+CREATE (a)-[:DESTINATION]->(b);
+
+MATCH (n)
+RETURN n
