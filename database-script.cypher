@@ -1,5 +1,5 @@
 MATCH (n)
-DETACH DELETE n
+DETACH DELETE n;
 
 // --------------------------------- Airplane -------------------------------- #
 
