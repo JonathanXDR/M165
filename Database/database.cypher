@@ -42,7 +42,6 @@ CREATE (:Flight {
     arrivalTime: '15:50 CET' 
 });
 
-
 CREATE (:Flight {
     airline: 'Air France',    
     flightNumber: 'AFR1629',
