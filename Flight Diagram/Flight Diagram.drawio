@@ -68,7 +68,7 @@
                 <mxCell id="3SsAFsKSN9-3vUPu50r0-2" value=":Passenger" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;align=center;verticalAlign=top;fillColor=#F2CC8F;strokeColor=#E07A5F;fontColor=#393C56;" parent="3SsAFsKSN9-3vUPu50r0-1" vertex="1">
                     <mxGeometry width="130" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="3SsAFsKSN9-3vUPu50r0-3" value="&lt;b&gt;firstname&lt;/b&gt;: string&lt;br&gt;&lt;b&gt;lastname&lt;/b&gt;: string" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#393C56;" parent="3SsAFsKSN9-3vUPu50r0-1" vertex="1">
+                <mxCell id="3SsAFsKSN9-3vUPu50r0-3" value="&lt;b&gt;firstName&lt;/b&gt;: string&lt;br&gt;&lt;b&gt;lastName&lt;/b&gt;: string" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#393C56;" parent="3SsAFsKSN9-3vUPu50r0-1" vertex="1">
                     <mxGeometry width="130" height="130" as="geometry"/>
                 </mxCell>
                 <mxCell id="3SsAFsKSN9-3vUPu50r0-4" value="" style="group;fontColor=#393C56;" parent="1" vertex="1" connectable="0">
