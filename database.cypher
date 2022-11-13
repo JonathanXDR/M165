@@ -35,7 +35,7 @@ CREATE (:Airplane {
 
 // ---------------------------------- Flight --------------------------------- #
 
-CREATE (b:Flight {
+CREATE (:Flight {
     airline: 'Helvetic',
     flightNumber: 'OAW1629',
     departureTime: '15:17 CET',
@@ -501,109 +501,107 @@ MATCH
     (b:Airplane  {model:"Boeing 777"})
 CREATE (a)-[:USES]->(b);
 
-
 // --------------------------- Flight -> Passenger -------------------------- #
 
 MATCH 
-    (a:Passenger {firstName:"Liam", lastName:"Smith"}), 
-    (b:Flight  {flightNumber:"OAW1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"OAW1629"})
+    (b:Passenger {firstName:"Liam", lastName:"Smith"}),    
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Noah", lastName:"Johnson"}), 
-    (b:Flight  {flightNumber:"ASA1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"ASA1629"})
+    (b:Passenger {firstName:"Noah", lastName:"Johnson"}),     
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Oliver", lastName:"Williams"}), 
-    (b:Flight  {flightNumber:"CCA1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"CCA1629"})
+    (b:Passenger {firstName:"Oliver", lastName:"Williams"}),     
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"William", lastName:"Jones"}), 
-    (b:Flight  {flightNumber:"AAL1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"AAL1629"})
+    (b:Passenger {firstName:"William", lastName:"Jones"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Elijah", lastName:"Brown"}), 
-    (b:Flight  {flightNumber:"ANZ1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"ANZ1629"})
+    (b:Passenger {firstName:"Elijah", lastName:"Brown"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"James", lastName:"Davis"}), 
-    (b:Flight  {flightNumber:"BAW1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"BAW1629"})
+    (b:Passenger {firstName:"James", lastName:"Davis"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Benjamin", lastName:"Miller"}), 
-    (b:Flight  {flightNumber:"LUF1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"LUF1629"})
+    (b:Passenger {firstName:"Benjamin", lastName:"Miller"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Lucas", lastName:"Wilson"}), 
-    (b:Flight  {flightNumber:"LUF1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"LUF1629"})
+    (b:Passenger {firstName:"Lucas", lastName:"Wilson"}), 
+CREATE (a)-[:CARRIES]->(b);
+
+MATCH  
+    (a:Flight  {flightNumber:"BER1629"})
+    (b:Passenger {firstName:"Mason", lastName:"Moore"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Mason", lastName:"Moore"}), 
-    (b:Flight  {flightNumber:"BER1629"})
-CREATE (a)-[:USES]->(b);
+    (b:Passenger {firstName:"Ethan", lastName:"Taylor"}), 
+    (a:Flight  {flightNumber:"TSC1629"})
+CREATE (a)-[:CARRIES]->(b);
+    
+MATCH 
+    (a:Flight  {flightNumber:"AXM1629"})
+    (b:Passenger {firstName:"Alexander", lastName:"Anderson"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Ethan", lastName:"Taylor"}), 
-    (b:Flight  {flightNumber:"TSC1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"ACA1629"})
+    (b:Passenger {firstName:"Henry", lastName:"Thomas"}), 
+CREATE (a)-[:CARRIES]->(b);
+
+MATCH   
+    (a:Flight  {flightNumber:"DAL1629"})
+    (b:Passenger {firstName:"Jacob", lastName:"Jackson"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Alexander", lastName:"Anderson"}), 
-    (b:Flight  {flightNumber:"AXM1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"UAL1629"})
+    (b:Passenger {firstName:"Michael", lastName:"White"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Henry", lastName:"Thomas"}), 
-    (b:Flight  {flightNumber:"ACA1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"ACA1629"})
+    (b:Passenger {firstName:"Daniel", lastName:"Harris"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Jacob", lastName:"Jackson"}), 
-    (b:Flight  {flightNumber:"DAL1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"AAL1629"})
+    (b:Passenger {firstName:"Logan", lastName:"Martin"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Michael", lastName:"White"}), 
-    (b:Flight  {flightNumber:"UAL1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"DAL1629"})
+    (b:Passenger {firstName:"Jackson", lastName:"Thompson"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Daniel", lastName:"Harris"}), 
-    (b:Flight  {flightNumber:"ACA1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"DLH1629"})
+    (b:Passenger {firstName:"Sebastian", lastName:"Garcia"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Logan", lastName:"Martin"}), 
-    (b:Flight  {flightNumber:"AAL1629"})
-CREATE (a)-[:USES]->(b);
+    (a:Flight  {flightNumber:"DAL1629"})
+    (b:Passenger {firstName:"Jack", lastName:"Martinez"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 MATCH 
-    (a:Passenger {firstName:"Jackson", lastName:"Thompson"}), 
-    (b:Flight  {flightNumber:"DAL1629"})
-CREATE (a)-[:USES]->(b);
-
-MATCH 
-    (a:Passenger {firstName:"Sebastian", lastName:"Garcia"}), 
-    (b:Flight  {flightNumber:"DLH1629"})
-CREATE (a)-[:USES]->(b);
-
-MATCH 
-    (a:Passenger {firstName:"Jack", lastName:"Martinez"}), 
-    (b:Flight  {flightNumber:"DAL1629"})
-CREATE (a)-[:USES]->(b);
-
-MATCH 
-    (a:Passenger {firstName:"Aiden", lastName:"Robinson"}), 
-    (b:Flight  {flightNumber:"ASR1629"})
-CREATE (a)-[:USES]->(b);
-
+    (a:Flight  {flightNumber:"ASR1629"})
+    (b:Passenger {firstName:"Aiden", lastName:"Robinson"}), 
+CREATE (a)-[:CARRIES]->(b);
 
 // ---------------------------- Flight -> Airport --------------------------- #
  
